@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+
+        <a href="login.html">voltar</a>
+
+
+        <label id="labelNome">Nome: <input type="text" id="nomeLogin" placeholder="Digite um nome"></label>
+        <label id="labelSenha">Senha: <input type="password" id="senhaLogin" placeholder="Digite uma senha"></label>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const params = new URLSearchParams(window.location.search);
+            var nome = params.get('nome');
+            var senha = params.get('senha');
+            var email = params.get('email');
+            var sobre = params.get('sobre');
+            var index = params.get('index');
+
+            // Agora você pode usar essas variáveis para criar seus elementos
+            if (nome) {
+                let nomeElement = document.createElement('p');
+
+                nomeElement.textContent = `Nome: ${nome}`;
+                document.getElementById('container').appendChild(nomeElement);
+            }
+
+            if (senha) {
+                let senhaElement = document.createElement('p');
+
+                senhaElement.textContent = `Senha: ${senha}`;
+                document.getElementById('container').appendChild(senhaElement);
+            }
+
+            if (email) {
+                let emailElement = document.createElement('p');
+
+
+                emailElement.textContent = `Email: ${email}`;
+                document.getElementById('container').appendChild(emailElement);
+            }
+
+            if (sobre === '') {
+                sobre = 'Adicione uma informação sobre você, ainda não há nehuma !';
+
+            }
+
+            if (sobre) {
+                let sobreElement = document.createElement('p');
+                sobreElement.textContent = `Sobre mim: ${sobre}`;
+                document.getElementById('container').appendChild(sobreElement);
+            }
+
+
+            let newButton = document.createElement('button');
+
+            // Definir um ID para o novo botão (opcional, mas útil se precisar referenciá-lo novamente)
+            newButton.id = 'editbutton';
+
+            // Adicionar texto ao botão
+            newButton.textContent = 'Edit';
+
+            document.getElementById('container').appendChild(newButton);
+
+            newButton.addEventListener('click', function () {
+                editar(nome, senha, email);
+                // Coloque aqui a lógica que você deseja executar quando o botão for clicado
+            });
+
+            let addButton = document.createElement('button');
+
+            // Definir um ID para o novo botão (opcional, mas útil se precisar referenciá-lo novamente)
+            addButton.id = 'addbutton';
+
+            // Adicionar texto ao botão
+            addButton.textContent = 'Adicionar Sobre Mim';
+
+            document.getElementById('container').appendChild(addButton);
+
+            addButton.addEventListener('click', function () {
+                adicionarSobre(index);
+                // Coloque aqui a lógica que você deseja executar quando o botão for clicado
+            });
+
+
+
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

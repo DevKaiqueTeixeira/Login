@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="bg">
+
+
+        <form onsubmit="return Cadastrar(event)">
+            <h1>Cadastro</h1>
+            <label>Nome: <input type="text" id="nomeCadastro" required placeholder="Digite um nome"></label>
+            <label>Email: <input type="email" id="emailCadastro" required placeholder="Digite um email"></label>
+            <label>Senha: <input type="password" id="senhaCadastro" required placeholder="Digite uma senha"></label>
+
+            <button>Cadastrar</button>
+            <span>Já possui uma conta ?</span> <a href="login.html"> Login</a>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
